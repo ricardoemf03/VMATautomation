@@ -1,0 +1,4 @@
+﻿Build started...
+1>------ Build started: Project: DVHestimations3, Configuration: Debug x64 ------
+1>  DVHestimations3 -> C:\Users\rescobar\Documents\Pruebas\plugins\DVHestimations3.esapi.dll
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

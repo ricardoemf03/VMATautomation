@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35706.149
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "planParams3", "planParams3.csproj", "{C50C5CC0-BDC6-4C13-8753-F2E7017E3054}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C50C5CC0-BDC6-4C13-8753-F2E7017E3054}.Debug|x64.ActiveCfg = Debug|x64
+		{C50C5CC0-BDC6-4C13-8753-F2E7017E3054}.Debug|x64.Build.0 = Debug|x64
+		{C50C5CC0-BDC6-4C13-8753-F2E7017E3054}.Release|x64.ActiveCfg = Release|x64
+		{C50C5CC0-BDC6-4C13-8753-F2E7017E3054}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EDA46A1-4B0E-46E6-8DDC-FF7F29E38E82}
+	EndGlobalSection
+EndGlobal

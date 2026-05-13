@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35706.149
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "opti3", "opti3.csproj", "{E86ED93D-AF25-4985-B74E-33DF65147A35}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E86ED93D-AF25-4985-B74E-33DF65147A35}.Debug|x64.ActiveCfg = Debug|x64
+		{E86ED93D-AF25-4985-B74E-33DF65147A35}.Debug|x64.Build.0 = Debug|x64
+		{E86ED93D-AF25-4985-B74E-33DF65147A35}.Release|x64.ActiveCfg = Release|x64
+		{E86ED93D-AF25-4985-B74E-33DF65147A35}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79B75A60-95AE-4966-916C-5FC7989F3FF5}
+	EndGlobalSection
+EndGlobal

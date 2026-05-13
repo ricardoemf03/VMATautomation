@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35706.149
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVHestimations3", "DVHestimations3.csproj", "{CFE5A0B4-07CB-44B5-BA7C-A572258D05A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFE5A0B4-07CB-44B5-BA7C-A572258D05A4}.Debug|x64.ActiveCfg = Debug|x64
+		{CFE5A0B4-07CB-44B5-BA7C-A572258D05A4}.Debug|x64.Build.0 = Debug|x64
+		{CFE5A0B4-07CB-44B5-BA7C-A572258D05A4}.Release|x64.ActiveCfg = Release|x64
+		{CFE5A0B4-07CB-44B5-BA7C-A572258D05A4}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5D7AC2B-A6D9-4BBC-B5BE-495FF3C09237}
+	EndGlobalSection
+EndGlobal
