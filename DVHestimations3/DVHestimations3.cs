@@ -43,8 +43,10 @@ namespace VMS.TPS
             // Si TargetCourseId queda "", buscará el plan en todos los cursos.
             // Si hay más de un plan con el mismo Id, pedirá definir el CourseId.
             // -----------------------------------------------------------------
-            const string TargetCourseId = "C1";      // Cambiar por el Course.Id real, o dejar "".
-            const string TargetPlanId = "plan1";     // Cambiar por el Plan.Id real.
+            var ui = AutoPlanSettingsReader.Load();
+
+            string TargetCourseId = ui.CourseId;
+            string TargetPlanId = ui.PlanId;
 
             ExternalPlanSetup plan = FindExternalPlanById(
                 context.Patient,
@@ -60,16 +62,16 @@ namespace VMS.TPS
                 // 
                 // Si ptv3Id viene null o "", BuildFromUiInputs lo ignora automáticamente.
                 // -----------------------------------------------------------------
-                string ptv1Id = "PTV_45Gy";
-                double? ptv1DoseGy = 45.0;
+                string ptv1Id = ui.Ptv1Id;
+                double? ptv1DoseGy = AutoPlanSettingsReader.ParseNullableDose(ui.Ptv1DoseGyText);
                 string ptv1ModelId = "PTV_50Gy";
 
-                string ptv2Id = "PTV_55Gy";
-                double? ptv2DoseGy = 55.0;
+                string ptv2Id = ui.Ptv2Id;
+                double? ptv2DoseGy = AutoPlanSettingsReader.ParseNullableDose(ui.Ptv2DoseGyText);
                 string ptv2ModelId = "PTV_50Gy";
 
-                string ptv3Id = "PTV_57.5Gy"; // Ejemplo: null o "" cuando no existe tercer PTV.
-                double? ptv3DoseGy = 57.5;
+                string ptv3Id = ui.Ptv3Id;
+                double? ptv3DoseGy = AutoPlanSettingsReader.ParseNullableDose(ui.Ptv3DoseGyText);
                 string ptv3ModelId = "PTV_50Gy";
 
                 DvhEstimationRequest request = DvhEstimationRequestFactory.BuildFromUiInputs(
@@ -645,9 +647,9 @@ namespace VMS.TPS
             foreach (KeyValuePair<string, string> kv in structureMatches)
                 sb.AppendLine(kv.Key + " -> " + kv.Value);
 
-            sb.AppendLine();
-            sb.AppendLine("=== Log interno ===");
-            sb.AppendLine(logText);
+            //sb.AppendLine();
+            //sb.AppendLine("=== Log interno ===");
+            //sb.AppendLine(logText);
 
             MessageBox.Show(sb.ToString(), "RapidPlan Debug", MessageBoxButton.OK, MessageBoxImage.Information);
         }

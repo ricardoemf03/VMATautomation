@@ -47,11 +47,15 @@ namespace VMS.TPS
                 // ptv2 = volumen intermedio / dosis intermedia
                 // ptv3 = boost / mayor dosis (opcional)
                 // =========================================================
-                string ptv1Id = "PTV_45Gy";
-                string ptv2Id = "PTV_55Gy";
-                string ptv3Id = "PTV_57.5Gy"; // dejar "" o null si no existe
+                var ui = AutoPlanSettingsReader.Load();
 
-                bool cropPtv1OutsideBody = false;
+                string ptv1Id = ui.Ptv1Id;
+                string ptv2Id = ui.Ptv2Id;
+                string ptv3Id = ui.Ptv3Id; // puede venir null si no existe PTV3
+
+                bool cropPtv1OutsideBody = ui.CropPtvOutsideBody;
+
+
                 double bodyCropMm = 4.0;
 
                 string ringPtv1Id = BuildRingIdFromPtvId(ptv1Id);

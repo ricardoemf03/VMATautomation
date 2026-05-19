@@ -81,16 +81,18 @@ namespace VMS.TPS
 
         private static PlanCreationOptions BuildOptions()
         {
-            string machineId = "HAL1102";
+            var ui = AutoPlanSettingsReader.Load();
+            string machineId = string.IsNullOrWhiteSpace(ui.MachineId) ? "HAL1102" : ui.MachineId;
             return new PlanCreationOptions
             {
                 // Estos valores quedan como placeholders para conectarlos luego a la GUI (ComboBox / CheckBox).
-                SelectedCourseId = "C1",
-                SelectedPrescriptionName = "BoostSIB",
-                SelectedStructureTargetId = "PTV_45Gy",   // Id real de la estructura
-                SelectedPrescriptionTargetId = "PTV_45Gy", // TargetId dentro de la Rx
-                NewPlanId = "plan1",
-                HasInguinalNodes = false,
+                SelectedCourseId = ui.CourseId,
+                SelectedPrescriptionName = !string.IsNullOrWhiteSpace(ui.PrescriptionName) ? ui.PrescriptionName : ui.PrescriptionId,
+                SelectedStructureTargetId = ui.Ptv1Id,
+                SelectedPrescriptionTargetId = ui.PrescriptionTargetId,
+                NewPlanId = ui.PlanId,
+                HasInguinalNodes = ui.HasInguinalNodes,
+
 
 
                 MachineId = machineId,
@@ -563,18 +565,18 @@ namespace VMS.TPS
 
             if (!isocenters.UseDualIsocenter)
             {
-                AddVmatBeam(plan, machineParameters, metersetWeights, "C1", 340.0, 179.0, 181.0, GantryDirection.CounterClockwise, options.CouchAngle, isocenters.Single.Dicom);
-                AddVmatBeam(plan, machineParameters, metersetWeights, "C2", 20.0, 181.0, 179.0, GantryDirection.Clockwise, options.CouchAngle, isocenters.Single.Dicom);
-                AddVmatBeam(plan, machineParameters, metersetWeights, "C3", inferiorLastCollimator, 179.0, 181.0, GantryDirection.CounterClockwise, options.CouchAngle, isocenters.Single.Dicom);
+                AddVmatBeam(plan, machineParameters, metersetWeights, "1/3 179-181", 340.0, 179.0, 181.0, GantryDirection.CounterClockwise, options.CouchAngle, isocenters.Single.Dicom);
+                AddVmatBeam(plan, machineParameters, metersetWeights, "2/3 181-179", 20.0, 181.0, 179.0, GantryDirection.Clockwise, options.CouchAngle, isocenters.Single.Dicom);
+                AddVmatBeam(plan, machineParameters, metersetWeights, "3/3 179-181", inferiorLastCollimator, 179.0, 181.0, GantryDirection.CounterClockwise, options.CouchAngle, isocenters.Single.Dicom);
                 return;
             }
 
-            AddVmatBeam(plan, machineParameters, metersetWeights, "C1", 340.0, 179.0, 181.0, GantryDirection.CounterClockwise, options.CouchAngle, isocenters.Superior.Dicom);
-            AddVmatBeam(plan, machineParameters, metersetWeights, "C2", 20.0, 181.0, 179.0, GantryDirection.Clockwise, options.CouchAngle, isocenters.Superior.Dicom);
+            AddVmatBeam(plan, machineParameters, metersetWeights, "1/5 179-181", 340.0, 179.0, 181.0, GantryDirection.CounterClockwise, options.CouchAngle, isocenters.Superior.Dicom);
+            AddVmatBeam(plan, machineParameters, metersetWeights, "2/5 181-179", 20.0, 181.0, 179.0, GantryDirection.Clockwise, options.CouchAngle, isocenters.Superior.Dicom);
 
-            AddVmatBeam(plan, machineParameters, metersetWeights, "C3", 340.0, 179.0, 181.0, GantryDirection.CounterClockwise, options.CouchAngle, isocenters.Inferior.Dicom);
-            AddVmatBeam(plan, machineParameters, metersetWeights, "C4", 20.0, 181.0, 179.0, GantryDirection.Clockwise, options.CouchAngle, isocenters.Inferior.Dicom);
-            AddVmatBeam(plan, machineParameters, metersetWeights, "C5", inferiorLastCollimator, 179.0, 181.0, GantryDirection.CounterClockwise, options.CouchAngle, isocenters.Inferior.Dicom);
+            AddVmatBeam(plan, machineParameters, metersetWeights, "3/5 179-181", 340.0, 179.0, 181.0, GantryDirection.CounterClockwise, options.CouchAngle, isocenters.Inferior.Dicom);
+            AddVmatBeam(plan, machineParameters, metersetWeights, "4/5 181-179", 20.0, 181.0, 179.0, GantryDirection.Clockwise, options.CouchAngle, isocenters.Inferior.Dicom);
+            AddVmatBeam(plan, machineParameters, metersetWeights, "5/5 179-181", inferiorLastCollimator, 179.0, 181.0, GantryDirection.CounterClockwise, options.CouchAngle, isocenters.Inferior.Dicom);
         }
 
         private static Beam AddVmatBeam(
